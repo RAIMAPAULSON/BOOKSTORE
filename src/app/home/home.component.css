@@ -1,0 +1,11 @@
+.home{
+    background-image: url('https://www.citeprograms.com/wp-content/uploads/2019/09/iStock-969066628.jpg');
+    background-size: cover;
+}
+.card{
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.1);
+}

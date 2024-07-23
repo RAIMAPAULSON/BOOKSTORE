@@ -1,0 +1,77 @@
+<div class="update">
+    <form (ngSubmit)="onSubmit(bookForm)" #bookForm="ngForm" novalidate>
+        <h2 class="text-center">ADD BOOKS DETAILS</h2>
+        <div>
+          <label for="bookId">Book ID</label>
+          <input type="text" id="bookId" name="bookId" [(ngModel)]="books.id" required #bookId="ngModel" readonly>
+          <div *ngIf="bookId.invalid && bookId.touched" class="error">
+            *Book ID is required.
+          </div>
+        </div>
+        
+        <div>
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" [(ngModel)]="books.title" required #title="ngModel">
+          <div *ngIf="title.invalid && title.touched" class="error">
+            *Title is required.
+          </div>
+        </div>
+    
+        <div>
+            <label for="image">Book Image</label>
+            <input type="text" id="image" name="image" [(ngModel)]="books.image" required #image="ngModel">
+            <div *ngIf="image.invalid && image.touched" class="error">
+              *Image is required.
+            </div>
+          </div>
+        
+        <div>
+          <label for="description">Description</label>
+          <input id="description" name="description" [(ngModel)]="books.description" required #description="ngModel">
+          <div *ngIf="description.invalid && description.touched" class="error">
+            *Description is required.
+          </div>
+        </div>
+        
+        <div>
+          <label for="category">Category</label>
+          <select id="category" name="category" [(ngModel)]="books.category" required #category="ngModel">
+            <option value="" disabled selected>Select a category</option>
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Non-Fiction</option>
+            <option value="science">Science</option>
+            <option value="biography">Biography</option>
+            <option value="autobiography">AutoBiography</option>
+            <option value="history">History</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="philosophy">Philosophy</option>
+            <option value="self-help">Self-help</option>
+            <option value="thriller">Thriller</option>
+          </select>
+          <div *ngIf="category.invalid && category.touched" class="error">
+            *Category is required.
+          </div>
+        </div>
+        
+        <div>
+          <label for="price">Price</label>
+          <input type="number" id="price" name="price" [(ngModel)]="books.price" required #price="ngModel">
+          <div *ngIf="price.invalid && price.touched" class="error">
+            *Price is required.
+          </div>
+        </div>
+        
+        <div>
+          <label for="author">Author</label>
+          <input type="text" id="author" name="author" [(ngModel)]="books.author" required #author="ngModel">
+          <div *ngIf="author.invalid && author.touched" class="error">
+            *Author is required.
+          </div>
+        </div>
+        
+        <div class="button-group">
+          <button type="submit" [disabled]="bookForm.invalid" [ngClass]="{'dim': bookForm.invalid}" (click)="updateBooks()">Update</button>
+          <button type="button" (click)="cancel(books.id)">Cancel</button>
+        </div>
+      </form>
+</div>
